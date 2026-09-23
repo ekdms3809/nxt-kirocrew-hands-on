@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E04 빛담 가을사진전 운영 보고서 (최종)</title>
+<style>
+body{font-family:system-ui,'Apple SD Gothic Neo',sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#1a1a1a}h1{border-bottom:2px solid #333;padding-bottom:.4rem}.meta{color:#666;font-size:.9rem;margin-bottom:1.5rem}.summary{background:#f6f8fa;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem}h2{margin-top:2rem}table{border-collapse:collapse;width:100%;margin:.5rem 0}th,td{border:1px solid #ccc;padding:.5rem .7rem;text-align:left}th{background:#eef1f4}tr:nth-child(even) td{background:#fafbfc}.src{color:#557;font-size:.82rem;margin:.2rem 0 .4rem;font-style:italic}
+</style>
+</head>
+<body>
+<h1>E04 빛담 가을사진전 운영 보고서 (최종)</h1>
+<p class="meta">생성일: 2026-09-23</p>
+<div class="summary"><strong>요약</strong><ul>
+<li>참가신청 200건: 확정 140, 대기 40, 취소 20. 확정 인원 140명은 승인 정원 180명 이내(초과 아님).</li>
+<li>정원변경승인서(CHANGE-SPACE-04)로 승인 정원이 160→180명으로 변경됨. 단 예산 증액이 아니고 신청자 상태를 자동 변경하지 않음.</li>
+<li>학교지원금: 승인 한도 1,500,000, 실제 입금 1,000,000(T091), 미입금 잔여 500,000은 현금 아님. 순지출 750,000, 가용 잔액 250,000.</li>
+<li>동아리회비: 기초 800,000 + 수입 280,000 + 환불입금 2,000 − 지출 148,000 = 잔액 934,000. 회비 순지출 146,000.</li>
+<li>E04 순지출 합계 896,000(지출 918,000 − 환불입금 22,000).</li>
+<li>구매계획 총비용: 140명 460,000 / 160명 510,000 / 180명 560,000원.</li>
+<li>확인 필요 3건: T094 열쇠고리 70,000(지원 제외), T095 인화비 용도 빈칸 50,000, T097 증빙 없음 30,000.</li>
+</ul></div>
+<h2>판단 근거 문서</h2>
+<p class="src">출처: RULE-01 / ACCOUNT-01 / CHANGE-SPACE-04 / APPROVAL-FUND-04</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>승인 정원</td><td>180명</td><td>CHANGE-SPACE-04: 승인 정원 160→180 변경, APPROVAL-SPACE-04 정원 조항 대체</td></tr>
+<tr><td>정원변경의 범위</td><td>예산증액 아님·상태 자동변경 없음</td><td>CHANGE-SPACE-04: 지원금·예산 증액 문서 아님, 신청자 상태 자동 변경하지 않음</td></tr>
+<tr><td>지원금 한도/입금</td><td>한도 1,500,000 / 1차 입금 1,000,000</td><td>APPROVAL-FUND-04: 총 승인 1.5M, 1차 지급 1M(T091), 잔여 500,000은 정산 후 지급</td></tr>
+<tr><td>미입금 잔여 처리</td><td>현금에 더하지 않음</td><td>RULE-01 제5조: 승인됐지만 미입금 금액은 현재 현금에 포함하지 않는다</td></tr>
+<tr><td>기초 잔액</td><td>지원금 0 / 회비 800,000</td><td>ACCOUNT-01 제1조: 2026-07-01 직전 기초 잔액</td></tr>
+<tr><td>순지출 공식</td><td>지출 + 환불지급 − 환불입금</td><td>ACCOUNT-01 제3조: 수입은 순지출에서 제외</td></tr>
+<tr><td>지원 제외 대상</td><td>기념품·개인 선물·주류·개인 장비</td><td>RULE-01 제3조: 학교지원금으로 처리 불가</td></tr>
+<tr><td>증빙·용도 보류</td><td>용도 불명확·증빙 없음 → 확인 필요</td><td>RULE-01 제4조: &#x27;인화비&#x27;처럼 용도 불명확하거나 증빙 없으면 보류</td></tr>
+</tbody></table>
+<h2>참가 현황 (참가신청.csv 200건)</h2>
+<p class="src">출처: 참가신청.csv / E04예산점검.json</p>
+<table><thead><tr>
+<th>신청상태</th>
+<th>인원</th>
+</tr></thead><tbody>
+<tr>
+<td>확정</td>
+<td>140</td>
+</tr>
+<tr>
+<td>대기</td>
+<td>40</td>
+</tr>
+<tr>
+<td>취소</td>
+<td>20</td>
+</tr>
+<tr>
+<td>합계</td>
+<td>200</td>
+</tr>
+</tbody></table>
+<h2>정원</h2>
+<p class="src">출처: CHANGE-SPACE-04 / E04예산점검.json</p>
+<table><thead><tr>
+<th>항목</th>
+<th>값</th>
+</tr></thead><tbody>
+<tr>
+<td>승인 정원</td>
+<td>180명</td>
+</tr>
+<tr>
+<td>확정 인원</td>
+<td>140명</td>
+</tr>
+<tr>
+<td>정원 초과 여부</td>
+<td>아니오</td>
+</tr>
+</tbody></table>
+<h2>재원별 잔액·순지출 (원)</h2>
+<p class="src">출처: 회계내역.csv / ACCOUNT-01 / E04예산점검.json</p>
+<table><thead><tr>
+<th>재원</th>
+<th>기초잔액</th>
+<th>가용 근거</th>
+<th>순지출</th>
+<th>현재 잔액</th>
+</tr></thead><tbody>
+<tr>
+<td>학교지원금</td>
+<td>0</td>
+<td>입금 1,000,000(T091)</td>
+<td>750,000</td>
+<td>250,000</td>
+</tr>
+<tr>
+<td>동아리회비</td>
+<td>800,000</td>
+<td>수입 280,000 등</td>
+<td>146,000</td>
+<td>934,000</td>
+</tr>
+<tr>
+<td>E04 합계</td>
+<td>-</td>
+<td>-</td>
+<td>896,000</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2>구매계획 인원별 비교 (원)</h2>
+<p class="src">출처: 구매계획.csv / ACCOUNT-01 제5조</p>
+<table><thead><tr>
+<th>인원 시나리오</th>
+<th>학교지원금</th>
+<th>동아리회비</th>
+<th>총비용</th>
+</tr></thead><tbody>
+<tr>
+<td>140명 (확정 인원)</td>
+<td>256,000</td>
+<td>204,000</td>
+<td>460,000</td>
+</tr>
+<tr>
+<td>160명 (최초 승인)</td>
+<td>284,000</td>
+<td>226,000</td>
+<td>510,000</td>
+</tr>
+<tr>
+<td>180명 (현재 승인 정원)</td>
+<td>312,000</td>
+<td>248,000</td>
+<td>560,000</td>
+</tr>
+</tbody></table>
+<h2>확인 필요 지출 (학교지원금)</h2>
+<p class="src">출처: 회계내역.csv / RULE-01 제3·4조</p>
+<table><thead><tr>
+<th>거래_ID</th>
+<th>항목</th>
+<th>금액</th>
+<th>사유</th>
+</tr></thead><tbody>
+<tr>
+<td>T094</td>
+<td>기념품(열쇠고리)</td>
+<td>70,000</td>
+<td>지원 제외 대상(제3조)</td>
+</tr>
+<tr>
+<td>T095</td>
+<td>인화비</td>
+<td>50,000</td>
+<td>용도 빈칸(제4조)</td>
+</tr>
+<tr>
+<td>T097</td>
+<td>-</td>
+<td>30,000</td>
+<td>증빙 없음(제4조)</td>
+</tr>
+</tbody></table>
+<h2>가능한 운영안</h2>
+<p class="src">출처: E04예산점검.json / CHANGE-SPACE-04</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>기준안(확정 140명)</td><td>구매 460,000, 재원 내 집행 가능</td><td>확정 인원 140명 기준. 지원금 가용 250,000 + 회비 934,000로 충당 가능</td></tr>
+<tr><td>확장안(180명 대비)</td><td>구매 560,000 준비 가능</td><td>CHANGE-SPACE-04로 정원 180 승인. 단 지원금 증액 없음 → 추가분은 회비로 충당 검토</td></tr>
+<tr><td>대기자 전환</td><td>정원 여유 40명(180−140)</td><td>확정 140 &lt; 승인 180. 대기 40명 전환 시에도 정원 이내이나 상태 변경은 규칙에 따라 별도 처리</td></tr>
+</tbody></table>
+<h2>추가 확인 사항</h2>
+<p class="src">출처: RULE-01 / APPROVAL-FUND-04</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>확인 필요 지출 3건</td><td>T094·T095·T097 합계 150,000</td><td>RULE-01 제3·4조: 지원 적격·증빙·용도 재확인 필요</td></tr>
+<tr><td>지원금 잔여 500,000</td><td>정산 후 지급, 현금 아님</td><td>APPROVAL-FUND-04 / RULE-01 제5조: 정산서 승인 후 지급 예정</td></tr>
+<tr><td>180명 예산 근거</td><td>정원만 승인, 예산 증액 미승인</td><td>CHANGE-SPACE-04: 지원금·예산 증액 문서 아님 → 추가 예산은 별도 승인 필요</td></tr>
+</tbody></table>
+</body></html>

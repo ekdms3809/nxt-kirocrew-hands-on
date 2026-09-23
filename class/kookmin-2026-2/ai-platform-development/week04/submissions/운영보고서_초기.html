@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빛담 가을사진전(E04) 운영 보고서 (초기)</title>
+<style>
+body{font-family:system-ui,'Apple SD Gothic Neo',sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#1a1a1a}h1{border-bottom:2px solid #333;padding-bottom:.4rem}.meta{color:#666;font-size:.9rem;margin-bottom:1.5rem}.summary{background:#f6f8fa;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem}h2{margin-top:2rem}table{border-collapse:collapse;width:100%;margin:.5rem 0}th,td{border:1px solid #ccc;padding:.5rem .7rem;text-align:left}th{background:#eef1f4}tr:nth-child(even) td{background:#fafbfc}.src{color:#557;font-size:.82rem;margin:.2rem 0 .4rem;font-style:italic}
+</style>
+</head>
+<body>
+<h1>빛담 가을사진전(E04) 운영 보고서 (초기)</h1>
+<p class="meta">생성일: 2026-09-23</p>
+<div class="summary"><strong>요약</strong><ul>
+<li>참가신청 200건: 확정 140 / 대기 40 / 취소 20. 물품 기본 인원은 확정 140명(CLUB-01 제1조).</li>
+<li>확정 140명 중 인화체험 신청 105, 식음료 신청 112.</li>
+<li>승인 정원은 160명(APPROVAL-SPACE-04). 홍보물 180명은 미승인이며 변경 승인서 없이는 160명 유지(RULE-02 제2조).</li>
+<li>학교지원금 순지출 750,000원(총지출 770,000 − 환불입금 T119 20,000). 미입금 잔여 500,000원은 현금 아님(RULE-01 제5조).</li>
+<li>회비 현재 잔액 134,000원(E04 범위, 기초 0 가정). 전체 이월 잔액은 CSV에 없어 확인 필요.</li>
+<li>E04 순지출 합계 896,000원(학교지원금 750,000 + 회비 146,000).</li>
+<li>구매계획 총비용: 140명 460,000 / 160명 510,000 / 180명 560,000원.</li>
+<li>확인 필요 3건: T095 인화비(용도 빈칸), T097 전시패널(증빙 없음), T094 기념품 열쇠고리(지원 제외).</li>
+<li>읽은 행 수 — 참가신청 200, 구매계획 12, 회계내역 120.</li>
+</ul></div>
+<h2>참가 상태별 인원</h2>
+<p class="src">출처: 참가신청.csv (200건) / CLUB-01 제1조</p>
+<table><thead><tr>
+<th>신청상태</th>
+<th>인원</th>
+<th>비고</th>
+</tr></thead><tbody>
+<tr>
+<td>확정</td>
+<td>140</td>
+<td>물품 기본 인원</td>
+</tr>
+<tr>
+<td>대기</td>
+<td>40</td>
+<td>전환 전 미가산(CLUB-01 제3조)</td>
+</tr>
+<tr>
+<td>취소</td>
+<td>20</td>
+<td>제외</td>
+</tr>
+<tr>
+<td>합계</td>
+<td>200</td>
+<td>전체 신청</td>
+</tr>
+</tbody></table>
+<h2>확정자(140명) 선택</h2>
+<p class="src">출처: 참가신청.csv</p>
+<table><thead><tr>
+<th>항목</th>
+<th>신청</th>
+<th>미신청·받지않음</th>
+</tr></thead><tbody>
+<tr>
+<td>인화체험</td>
+<td>105</td>
+<td>35</td>
+</tr>
+<tr>
+<td>식음료</td>
+<td>112</td>
+<td>28</td>
+</tr>
+</tbody></table>
+<h2>참가 정원: 승인 vs 홍보</h2>
+<p class="src">출처: APPROVAL-SPACE-04 / RULE-02 제1·2조</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>승인 정원</td><td>160명</td><td>APPROVAL-SPACE-04: 승인 참가 정원 160명(운영요원 별도)</td></tr>
+<tr><td>홍보 안내</td><td>180명</td><td>장소 승인서: 180명 홍보물은 승인 조건과 달라 정정 검토 필요</td></tr>
+<tr><td>확정 인원</td><td>140명</td><td>참가신청.csv 확정 140건</td></tr>
+<tr><td>차이(홍보−승인)</td><td>+20명</td><td>180 − 160 = 20, 미승인 초과</td></tr>
+<tr><td>판단</td><td>160명 유지</td><td>RULE-02 제2조: 홍보 문구만으로 정원 변경 불가, 유효한 변경 승인서 필요</td></tr>
+</tbody></table>
+<h2>잔액·순지출 요약</h2>
+<p class="src">출처: 회계내역.csv (120건, E04 30건) / APPROVAL-FUND-04 / RULE-01 제5조</p>
+<table><thead><tr>
+<th>구분</th>
+<th>금액(원)</th>
+<th>근거</th>
+</tr></thead><tbody>
+<tr>
+<td>학교지원금 총 승인 한도</td>
+<td>1,500,000</td>
+<td>APPROVAL-FUND-04 (지출 한도)</td>
+</tr>
+<tr>
+<td>학교지원금 실제 입금 1차</td>
+<td>1,000,000</td>
+<td>T091 입금</td>
+</tr>
+<tr>
+<td>학교지원금 미입금 잔여</td>
+<td>500,000</td>
+<td>현금 아님(RULE-01 제5조)</td>
+</tr>
+<tr>
+<td>학교지원금 순지출</td>
+<td>750,000</td>
+<td>지출 770,000 − 환불 T119 20,000</td>
+</tr>
+<tr>
+<td>학교지원금 가용 현금</td>
+<td>250,000</td>
+<td>입금 1,000,000 + 환불 − 지출</td>
+</tr>
+<tr>
+<td>회비 현재 잔액(E04)</td>
+<td>134,000</td>
+<td>수입 280,000 + 환불 2,000 − 지출 148,000</td>
+</tr>
+<tr>
+<td>E04 순지출 합계</td>
+<td>896,000</td>
+<td>학교지원금 750,000 + 회비 146,000</td>
+</tr>
+</tbody></table>
+<h2>구매계획 시나리오 비교 (140 / 160 / 180명)</h2>
+<p class="src">출처: 구매계획.csv (12건) / RULE-02 제1조</p>
+<table><thead><tr>
+<th>인원 기준</th>
+<th>학교지원금(원)</th>
+<th>동아리회비(원)</th>
+<th>총비용(원)</th>
+</tr></thead><tbody>
+<tr>
+<td>140명 (확정 인원)</td>
+<td>256,000</td>
+<td>204,000</td>
+<td>460,000</td>
+</tr>
+<tr>
+<td>160명 (승인 정원)</td>
+<td>284,000</td>
+<td>226,000</td>
+<td>510,000</td>
+</tr>
+<tr>
+<td>180명 (홍보·미승인)</td>
+<td>312,000</td>
+<td>248,000</td>
+<td>560,000</td>
+</tr>
+</tbody></table>
+<h2>가능한 운영안</h2>
+<p class="src">출처: APPROVAL-SPACE-04 / RULE-02 / CLUB-01 제3조</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>운영안 A (권장)</td><td>160명 기준 준비</td><td>RULE-02 제2조: 승인 정원 160 준수, 구매계획 총 510,000원</td></tr>
+<tr><td>운영안 B (현실)</td><td>140명 확정 기준 준비</td><td>CLUB-01 제1조: 물품 기본 인원은 확정 인원, 총 460,000원. 대기 전환 시 160까지 여유</td></tr>
+<tr><td>운영안 C (비권장)</td><td>180명 준비</td><td>RULE-02 제2조 위반 소지: 변경 승인서 없이는 불가, 참고용 수치</td></tr>
+<tr><td>대기자 전환</td><td>승인 정원·물품·재원 확인 후 순서대로</td><td>CLUB-01 제3조: 미전환자를 확정에 미리 더하지 않음</td></tr>
+</tbody></table>
+<h2>추가 확인 사항 (지출 보류)</h2>
+<p class="src">출처: 회계내역.csv / RULE-01 제3·4조</p>
+<table><thead><tr>
+<th>거래_ID</th>
+<th>항목</th>
+<th>금액(원)</th>
+<th>사유·근거</th>
+</tr></thead><tbody>
+<tr>
+<td>T095</td>
+<td>인화비</td>
+<td>50,000</td>
+<td>용도 빈칸 → 확인 필요(RULE-01 제4조)</td>
+</tr>
+<tr>
+<td>T097</td>
+<td>전시패널</td>
+<td>30,000</td>
+<td>증빙 없음 → 확인 필요(RULE-01 제4조)</td>
+</tr>
+<tr>
+<td>T094</td>
+<td>기념품(열쇠고리)</td>
+<td>70,000</td>
+<td>기념품 지원 제외(RULE-01 제3조)</td>
+</tr>
+<tr>
+<td>회비 전체 잔액</td>
+<td>잔액 확인</td>
+<td>미확정</td>
+<td>E04 이월 기초잔액 CSV에 없음 → 확인 필요</td>
+</tr>
+<tr>
+<td>홍보물 180명</td>
+<td>정정 대상</td>
+<td>—</td>
+<td>승인 160명과 불일치 → 정정 또는 변경 승인서(RULE-02)</td>
+</tr>
+</tbody></table>
+<h2>판단 근거 문서</h2>
+<p class="src">출처: 지식 근거 문서 목록</p>
+<table><thead><tr><th>항목</th><th>값</th><th>근거</th></tr></thead><tbody>
+<tr><td>RULE-01</td><td>학교지원금 지침</td><td>지원대상·제외(제3조)·증빙(제4조)·자금구분(제5조)</td></tr>
+<tr><td>RULE-02</td><td>공간·참가정원 규정</td><td>제1조 정원=승인서 기준, 제2조 홍보만으로 변경 불가</td></tr>
+<tr><td>CLUB-01</td><td>동아리 운영규칙</td><td>제1조 확정 기준, 제2조 회비, 제3조 대기 전환, 제4조 기록</td></tr>
+<tr><td>APPROVAL-FUND-04</td><td>E04 지원금 승인서</td><td>한도 1,500,000 / 1차 1,000,000(T091)</td></tr>
+<tr><td>APPROVAL-SPACE-04</td><td>E04 장소 사용 승인서</td><td>승인 정원 160명, 사용시간 14:00~17:00</td></tr>
+</tbody></table>
+</body></html>
