@@ -18,12 +18,12 @@
 
 ## 결과와 확인
 
-submissions 안에 실행별 폴더를 나누어 명세, result.json, 짧은 보고서, 검증 기록을 저장합니다. 만든 코드도 같은 폴더에 보관할 수 있습니다. 현재 실행에서 새로 만들어진 결과인지 확인하세요.
+week05/submissions/practice 안에 실행별 폴더를 나누어 명세, result.json, 짧은 보고서, 검증 기록을 저장합니다. 만든 코드도 같은 폴더에 보관할 수 있습니다. 현재 실행에서 새로 만들어진 결과인지 확인하세요.
 
-제공하는 검사는 2차 업무의 전체 품목별 기준용입니다. practice 폴더의 터미널에서 다음과 같이 실행합니다. python3 대신 python을 사용하는 환경에서는 실행 이름만 바꾸세요.
+제공하는 검사는 2차 업무의 전체 품목별 기준용입니다. week05 폴더의 터미널에서 다음과 같이 실행합니다. python3 대신 python을 사용하는 환경에서는 실행 이름만 바꾸세요.
 
 ```sh
-python3 tests/check_result.py submissions/run02/result.json
+python3 practice/tests/check_result.py submissions/practice/run02/result.json
 ```
 
 이 검사는 원본에서 수치를 다시 계산해 JSON과 비교합니다. Markdown 보고서의 내용, 실제 Task Runner 실행 여부, 입력 미변경, 종료 후 최종 폴더에 저장됐는지까지 증명하지는 않습니다. 이 항목은 별도로 대조해 기록하세요.
