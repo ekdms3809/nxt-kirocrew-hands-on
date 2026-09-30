@@ -1,0 +1,17 @@
+{
+  "warehouse": "warehouse-a",
+  "total": 22,
+  "item_quantities": {
+    "mug": 12,
+    "bottle": 3,
+    "sensor": 7
+  },
+  "low_stock": [
+    {
+      "warehouse": "warehouse-a",
+      "item": "bottle",
+      "quantity": 3
+    }
+  ],
+  "low_stock_basis": "warehouse_row"
+}

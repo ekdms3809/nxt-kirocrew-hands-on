@@ -1,0 +1,22 @@
+{
+  "warehouse": "warehouse-c",
+  "total": 16,
+  "item_quantities": {
+    "sensor": 4,
+    "hub": 11,
+    "cable": 1
+  },
+  "low_stock": [
+    {
+      "warehouse": "warehouse-c",
+      "item": "sensor",
+      "quantity": 4
+    },
+    {
+      "warehouse": "warehouse-c",
+      "item": "cable",
+      "quantity": 1
+    }
+  ],
+  "low_stock_basis": "warehouse_row"
+}

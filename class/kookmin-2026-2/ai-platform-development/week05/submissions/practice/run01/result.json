@@ -1,0 +1,44 @@
+{
+  "source_files": [
+    "warehouse-a.md",
+    "warehouse-b.md",
+    "warehouse-c.md"
+  ],
+  "warehouse_totals": {
+    "warehouse-a": 22,
+    "warehouse-b": 16,
+    "warehouse-c": 16
+  },
+  "item_totals": {
+    "mug": 17,
+    "bottle": 12,
+    "sensor": 11,
+    "hub": 13,
+    "cable": 1
+  },
+  "grand_total": 54,
+  "low_stock_basis": "warehouse_row",
+  "threshold": 5,
+  "low_stock": [
+    {
+      "warehouse": "warehouse-a",
+      "item": "bottle",
+      "quantity": 3
+    },
+    {
+      "warehouse": "warehouse-b",
+      "item": "hub",
+      "quantity": 2
+    },
+    {
+      "warehouse": "warehouse-c",
+      "item": "sensor",
+      "quantity": 4
+    },
+    {
+      "warehouse": "warehouse-c",
+      "item": "cable",
+      "quantity": 1
+    }
+  ]
+}
