@@ -1,0 +1,24 @@
+{
+  "warehouse_totals": {
+    "warehouse-a": 22,
+    "warehouse-b": 16,
+    "warehouse-c": 16
+  },
+  "item_totals": {
+    "bottle": 12,
+    "cable": 1,
+    "hub": 13,
+    "mug": 17,
+    "sensor": 11
+  },
+  "low_stock": [
+    {
+      "item": "cable",
+      "item_total": 1,
+      "threshold": 5
+    }
+  ],
+  "low_stock_basis": "item_total",
+  "threshold": 5,
+  "grand_total": 54
+}

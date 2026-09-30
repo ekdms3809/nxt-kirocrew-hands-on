@@ -1,0 +1,9 @@
+{
+  "warehouse": "warehouse-c",
+  "items": {
+    "sensor": 4,
+    "hub": 11,
+    "cable": 1
+  },
+  "total": 16
+}

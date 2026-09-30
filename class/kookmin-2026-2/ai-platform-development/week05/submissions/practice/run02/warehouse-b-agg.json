@@ -1,0 +1,10 @@
+{
+  "warehouse": "B",
+  "source": "/Users/daeun/Desktop/work/nxt-kirocrew-hands-on/class/kookmin-2026-2/ai-platform-development/week05/practice/data/warehouse-b.md",
+  "items": {
+    "mug": 5,
+    "bottle": 9,
+    "hub": 2
+  },
+  "total": 16
+}
