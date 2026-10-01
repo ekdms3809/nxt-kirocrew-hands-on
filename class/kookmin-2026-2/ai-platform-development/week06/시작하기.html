@@ -17,12 +17,12 @@
 <body>
 <a class="skip-link" href="#prepare">실습 안내로 이동</a>
 <div class="shell">
-<header class="hero">
+<header class="hero" id="hero">
   <div class="eyebrow">국민대학교 · AI플랫폼개발 · WEEK 06</div>
   <h1>반복 실행과<br>사람의 판단</h1>
-  <p>12명이 참여하는 학과 AI 실습 모임을 준비합니다. 준비 업무를 정기적으로 확인하고 영어·일본어 안내를 나누어 작성한 뒤, 사람이 판단할 지점을 살펴봅니다.</p>
+  <p>정원 12명의 학과 AI 실습 모임을 준비합니다. 신청과 취소로 달라지는 인원과 남은 자리를 매일 확인하고, 영어·일본어 안내를 나누어 작성한 뒤 사람이 판단할 지점을 살펴봅니다.</p>
   <div class="today">
-    <div><span>01 · 스케줄</span><strong>준비 업무 정기 점검</strong></div>
+    <div><span>01 · 스케줄</span><strong>신청 현황 정기 점검</strong></div>
     <div><span>02 · 병렬 위임</span><strong>영어·일본어 번역</strong></div>
     <div><span>03 · 가드레일</span><strong>명령 차단과 통과</strong></div>
     <div><span>04 · HITL</span><strong>선택 체험과 승인 관찰</strong></div>
@@ -48,9 +48,9 @@
   <h2>1. 실습 폴더 준비</h2>
   <p>Kiro Crew의 작업 폴더를 실습 저장소 안의 <code>week06</code>으로 맞춥니다. 아래 요청의 경로는 모두 이 폴더를 기준으로 합니다. 입력 자료를 먼저 열고, 각 단계의 결과 파일과 실행 화면을 함께 확인하세요.</p>
   <ul>
-    <li><a href="practice/모임조건.md">모임조건.md</a>: 날짜, 장소, 준비물과 신청 방법</li>
-    <li><a href="practice/준비현황.md">준비현황.md</a>: 네 업무의 마감과 상태</li>
-    <li><a href="practice/모임안내_원문.md">모임안내_원문.md</a>: 영어·일본어로 번역할 한국어 안내문</li>
+    <li><a href="practice/%EB%AA%A8%EC%9E%84%EC%A1%B0%EA%B1%B4.md">모임조건.md</a>: 날짜, 장소, 준비물과 신청 방법</li>
+    <li><a href="practice/%EC%8B%A0%EC%B2%AD%ED%98%84%ED%99%A9.csv">신청현황.csv</a>: 신청자별 신청·취소 상태</li>
+    <li><a href="practice/%EB%AA%A8%EC%9E%84%EC%95%88%EB%82%B4_%EC%9B%90%EB%AC%B8.md">모임안내_원문.md</a>: 영어·일본어로 번역할 한국어 안내문</li>
   </ul>
   <p>입력 자료는 <code>practice/</code>에, 자신이 실행해 만든 결과는 <code>submissions/</code>에 둡니다.</p>
   <p>폴더의 전체 경로를 찾는 방법은 <a href="#schedule-path">3번의 폴더 경로 안내</a>에서 따라 할 수 있습니다.</p>
@@ -58,10 +58,10 @@
 <section id="schedule-link">
   <h2>2. 지난주 DAG의 정기 실행 연결</h2>
   <p>강사 화면에서 W05의 기존 창고 재고 집계 작업을 엽니다. Task Runner 우측 상단의 <strong>정기 실행</strong>을 선택하고, 스케줄 화면의 Details에서 작업 메시지, 실행 간격, 담당 에이전트를 확인합니다.</p>
-  <p>이미 만든 작업을 반복 실행에 연결하는 경로입니다. 다음 단계에서는 모임 준비 현황을 점검하는 스케줄을 직접 만듭니다.</p>
+  <p>이미 만든 작업을 반복 실행에 연결하는 경로입니다. 다음 단계에서는 모임 신청 현황을 점검하는 스케줄을 직접 만듭니다.</p>
 </section>
 <section id="schedule">
-  <h2>3. 스케줄 뷰에서 준비 점검 만들기</h2>
+  <h2>3. 스케줄 뷰에서 신청 현황 점검 만들기</h2>
   <p>스케줄 작업이 내 자료를 찾을 수 있도록 <strong>week06 폴더의 전체 주소(절대경로)</strong>부터 확인합니다. 폴더 이름이 같아도 저장 위치는 사람마다 다릅니다.</p>
   <h3 id="schedule-path">3-1. 내 week06 폴더 찾고 경로 복사하기</h3>
   <p>파일 탐색기나 Finder에서 실습 자료를 저장한 폴더를 엽니다. 위치가 기억나지 않으면 <strong>다운로드</strong> 또는 <strong>바탕 화면</strong>부터 확인하세요. ZIP으로 받았다면 먼저 압축을 풉니다.</p>
@@ -105,7 +105,7 @@ pwd</code></pre>
   <h3>3-3. 확인한 경로로 스케줄 등록하기</h3>
   <p>Kiro Crew의 스케줄 화면으로 돌아가 다음 작업을 등록합니다.</p>
   <div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">설정</th></tr></thead><tbody>
-    <tr><th scope="row">작업명</th><td>AI 실습 모임 준비 현황</td></tr>
+    <tr><th scope="row">작업명</th><td>AI 실습 모임 신청 현황</td></tr>
     <tr><th scope="row">반복</th><td>주간 스케줄에서 모든 요일 선택 — 매일 실행</td></tr>
     <tr><th scope="row">실행 시각</th><td>09:00</td></tr>
     <tr><th scope="row">시간대</th><td>Asia/Seoul</td></tr>
@@ -115,18 +115,43 @@ pwd</code></pre>
   <label class="prompt-label" for="prompt-schedule">작업 프롬프트</label>
   <textarea id="prompt-schedule" readonly>작업 폴더: [내 week06 절대경로]
 
-이 폴더의 practice/준비현황.md를 읽고 모임 준비 현황을 요약해줘.
-문서에 적힌 기준 시각으로 오늘 마감인 미완료 업무와
-그 이후의 미완료 업무를 나눠줘.
-완료된 업무는 할 일 목록에서 제외해줘.
-업무명, 마감, 상태를 담은 10줄 이내 보고서를
-submissions/schedule/준비요약.md에 저장해줘.
-실행할 때마다 현재 파일 내용을 다시 읽고 같은 보고서를 갱신해줘.</textarea>
+이 폴더의 practice/모임조건.md와 practice/신청현황.csv를 읽고
+모임 신청 현황을 10줄 이내로 요약해줘.
+현재 실행 시각을 Asia/Seoul 기준으로 확인하고 보고서에 표시해줘.
+상태가 '신청'인 행만 현재 신청 인원으로 세고, '취소'는 따로 집계해줘.
+정원은 모임조건에서 읽고, 남은 자리는 정원에서 현재 신청 인원을 빼서
+계산하되 최소 0석으로 표시해줘. 정원 초과 인원이 있으면 따로 알려줘.
+신청 마감 일시와 실행 시각을 비교해 남은 기간을 계산하고,
+마감 전이면 '접수 중', 마감 시각부터는 '마감됨'으로 표시해줘.
+실행할 때마다 두 입력 파일을 다시 읽고, 이전 보고서에서 추측하지 마.
+submissions/schedule/신청요약.md를 현재 결과로 갱신해줘.</textarea>
   <div class="copy-actions"><button type="button" data-copy="prompt-schedule">프롬프트 복사</button><span class="copy-feedback" role="status" aria-live="polite"></span></div>
   <p>등록 후 다음 실행 시각과 시간대를 확인하고, <strong>지금 실행</strong>으로 결과를 확인합니다. 파일 읽기·쓰기 승인 요청은 <strong>상단 벨 알림</strong>에서 승인한 뒤, 실행 기록과 결과 파일을 확인합니다.</p>
-  <h3>확인할 것</h3>
-  <ul><li>오늘 할 일: T02 모집 안내 초안 1건</li><li>다음 일정: T03 장소 안내 확인, T04 실습 파일 준비 2건</li><li>완료된 T01 참가 인원 확인은 할 일 목록에서 제외</li><li>실행 이력과 <code>submissions/schedule/준비요약.md</code>가 모두 남았는가?</li></ul>
-  <p class="note">보고서의 <strong>오늘</strong>은 자료 기준일인 2026년 10월 7일입니다. 실제 예약 시각과 구별해 확인하고, 등록한 스케줄을 <strong>일시 중지</strong>하세요.</p>
+  <h3>3-4. 첫 집계 확인하기</h3>
+  <p><code>submissions/schedule/신청요약.md</code>를 열어 <strong>현재 신청 7명, 취소 1명, 정원 12명, 남은 자리 5석</strong>인지 확인합니다. 모임의 정원과 현재 신청 인원은 다릅니다.</p>
+  <p>보고서에 실행한 한국 시각과 신청 마감 <strong>2026년 10월 14일 18:00</strong>이 함께 표시되는지 확인합니다. 남은 기간은 실행 시각에 따라 달라지며, 마감 시각이 지났다면 <strong>마감됨</strong>으로 표시합니다.</p>
+  <h3>3-5. 신청 현황을 바꾸고 다시 실행하기</h3>
+  <p>이제 신청자 2명이 늘고 기존 신청자 1명이 취소한 상황을 만들어 봅니다. 파일 탐색기나 Finder에서 <code>week06 → practice</code>로 이동합니다.</p>
+  <ol>
+    <li><code>신청현황.csv</code>를 마우스 오른쪽 버튼으로 누르고 <strong>연결 프로그램 → 텍스트 편집기</strong>로 엽니다. Windows는 메모장, Mac은 텍스트 편집기를 사용할 수 있습니다.</li>
+    <li><code>R003,박서연,신청</code> 행의 마지막 값을 바꿔 <code>R003,박서연,취소</code>로 만듭니다. 이 행을 지우거나 같은 사람을 새 행으로 추가하지 않습니다.</li>
+    <li>파일의 마지막 줄 다음에 아래 두 줄을 붙여 넣습니다. 맨 위의 <code>신청ID,이름,상태</code> 제목 줄은 한 번만 둡니다.</li>
+  </ol>
+  <label class="prompt-label" for="registration-additions">추가할 신청자 2명</label>
+  <textarea class="short-copy" id="registration-additions" readonly>R009,오지훈,신청
+R010,임채원,신청</textarea>
+  <div class="copy-actions"><button type="button" data-copy="registration-additions">추가할 두 줄 복사</button><span class="copy-feedback" role="status" aria-live="polite"></span></div>
+  <ol start="4">
+    <li><strong>Ctrl + S</strong>(Windows) 또는 <strong>⌘ + S</strong>(Mac)로 같은 파일에 저장합니다. 파일 이름과 확장자 <code>신청현황.csv</code>를 유지합니다.</li>
+    <li>Kiro Crew 스케줄에서 같은 작업의 <strong>지금 실행</strong>을 누릅니다. 실행을 마치면 열어 두었던 <code>submissions/schedule/신청요약.md</code>를 다시 엽니다.</li>
+  </ol>
+  <div class="table-wrap"><table><thead><tr><th scope="col">집계</th><th scope="col">첫 실행</th><th scope="col">변경 후 재실행</th></tr></thead><tbody>
+    <tr><th scope="row">현재 신청</th><td>7명</td><td>8명</td></tr>
+    <tr><th scope="row">취소</th><td>1명</td><td>2명</td></tr>
+    <tr><th scope="row">남은 자리</th><td>5석</td><td>4석</td></tr>
+  </tbody></table></div>
+  <p>새 신청 2명에서 취소 1명을 빼면 현재 신청은 1명 늘어납니다. <strong>같은 요청을 실행해도 새로 읽은 데이터에 따라 보고서가 달라지는지</strong> 확인하세요. 실제 운영에서는 담당자가 현황표를 갱신하고, 스케줄이 매일 정해진 시각에 이 점검을 실행합니다.</p>
+  <p class="note">두 번의 실행 기록과 갱신된 보고서를 확인한 뒤 등록한 스케줄을 <strong>일시 중지</strong>하세요.</p>
 </section>
 <section id="parallel">
   <h2>4. 영어·일본어 번역을 병렬 위임하기</h2>
@@ -148,7 +173,7 @@ kirocrew config get agent.spawn_min_memory_gb</textarea>
 일본어 담당은 submissions/parallel/일본어.md에 저장해줘.
 
 결과 형식은 제목, 요약, 모임 정보, 신청 방법의 순서로 통일해줘.
-요약은 한 문단으로 적고, 모임 정보는 일정, 장소, 인원, 준비물,
+요약은 한 문단으로 적고, 모임 정보는 일정, 장소, 정원, 준비물,
 Wi-Fi, 참가비, 진행 언어, 참여 대상을 담은 표로 만들어줘.
 신청 방법에는 신청 방식과 마감을 적어줘.
 사실은 유지하고 표현만 맡은 언어로 바꿔줘.
