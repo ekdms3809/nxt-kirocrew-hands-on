@@ -31,7 +31,7 @@
 </header>
 <div class="layout">
 <aside class="sidebar">
-  <div class="progress"><strong id="progress-label">내 진행 · 0 / 8</strong><progress id="progress-bar" max="8" value="0" aria-label="완료한 단계"></progress><p>직접 확인한 단계만 체크하세요.<br>새로 열면 체크가 초기화됩니다.</p></div>
+  <div class="progress"><strong id="progress-label">내 진행 · 0 / 9</strong><progress id="progress-bar" max="9" value="0" aria-label="완료한 단계"></progress><p>직접 확인한 단계만 체크하세요.<br>새로 열면 체크가 초기화됩니다.</p></div>
   <nav aria-label="수업 단계">
     <a href="#prepare">01 · 실습 폴더 준비</a>
     <a href="#schedule-link">02 · 지난주 DAG 연결</a>
@@ -41,6 +41,7 @@
     <a href="#guardrail-test">06 · 차단과 통과 비교</a>
     <a href="#question">07 · 질문 카드 체험</a>
     <a href="#approval">08 · 승인 흐름 관찰</a>
+    <a href="#mission-submission">09 · 미션 제출물 저장</a>
   </nav>
 </aside>
 <main>
@@ -251,6 +252,32 @@ submissions/hitl/선택기록.md에 저장해줘.</textarea>
   <p>질문 카드는 사람에게 업무 기준을 받고, 승인 지점은 다음 행동의 실행 여부를 통제합니다. 관찰할 핵심은 <strong>승인 전에는 다음 행동이 실행되지 않고, 승인 후에 진행되는 연결</strong>입니다.</p>
   <h3>직접 시스템을 만들 때 정할 것</h3>
   <ul><li><strong>누가:</strong> 판단할 권한과 책임을 가진 사람은 누구인가?</li><li><strong>언제:</strong> 업무의 어느 판단 지점에서, 어떤 행동 전에 개입을 요청할 것인가?</li><li><strong>판단 근거와 선택지:</strong> 어떤 내용·변경점·영향을 보여주고 무엇을 선택하게 할 것인가?</li><li><strong>수정과 거부:</strong> 수정 요청이나 거부를 받으면 어느 단계로 돌아갈 것인가?</li><li><strong>무응답과 재개:</strong> 답이 없을 때 어떤 상태로 기다리며, 답을 받은 뒤 어디서 이어갈 것인가?</li></ul>
+</section>
+<section id="mission-submission">
+  <h2>9. 미션 제출물 저장하기</h2>
+  <p>파일 탐색기나 Finder에서 <code>week06 → submissions → mission</code> 폴더를 엽니다. 이 폴더에 있는 <a href="submissions/mission/%EC%A0%9C%EC%B6%9C%EA%B8%B0%EB%A1%9D.md">제출기록.md</a>를 작성하고 결과 파일과 스크린샷을 같은 곳에 모읍니다.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">저장할 파일</th><th scope="col">내용</th></tr></thead><tbody>
+    <tr><th scope="row"><code>제출기록.md</code></th><td>실제 등록한 프롬프트, 입력 변경과 결과의 차이, DAG의 HITL 설정 이유</td></tr>
+    <tr><th scope="row"><code>스케줄설정.png</code></th><td>작업명과 실행 주기가 보이는 스케줄 설정 화면</td></tr>
+    <tr><th scope="row"><code>첫결과.md</code></th><td>데이터를 바꾸기 전의 첫 실행 결과</td></tr>
+    <tr><th scope="row"><code>재실행결과.md</code></th><td>데이터를 바꾼 뒤 같은 스케줄을 다시 실행한 결과</td></tr>
+    <tr><th scope="row"><code>DAG_HITL.png</code></th><td>승인 필요로 설정한 단계가 보이는 DAG 화면</td></tr>
+  </tbody></table></div>
+  <h3>첫 결과를 보관한 뒤 다시 실행하기</h3>
+  <p>미션 스케줄의 작업 메시지에 결과 저장 위치를 <code>submissions/mission/점검결과.md</code>로 지정하고, 실행할 때마다 현재 결과로 갱신하도록 적습니다. 실제 등록한 메시지는 <code>제출기록.md</code>에 그대로 복사합니다.</p>
+  <ol>
+    <li>첫 실행이 끝나면 <code>점검결과.md</code>를 열어 내용을 확인합니다.</li>
+    <li>파일 탐색기나 Finder에서 이 파일을 <strong>복사·붙여넣기</strong>한 뒤, 복사본 이름을 <code>첫결과.md</code>로 바꿉니다. <code>점검결과.md</code>는 그대로 둡니다.</li>
+    <li>미션의 입력 데이터를 바꾸고, 같은 스케줄의 <strong>지금 실행</strong>을 누릅니다.</li>
+    <li>갱신된 <code>점검결과.md</code>를 다시 복사해 <code>재실행결과.md</code>로 보관합니다.</li>
+    <li>두 결과를 비교하고, 바꾼 데이터와 달라진 결과를 <code>제출기록.md</code>에 적습니다.</li>
+  </ol>
+  <p>스크린샷 두 장도 위 표의 이름으로 저장합니다. <code>DAG_HITL.png</code>에는 단계 이름과 승인 설정이 함께 보여야 하며, 해당 지점에서 사람이 판단해야 하는 이유를 제출 기록에 2~3문장으로 적습니다.</p>
+  <p class="note">위 표의 <strong>5개 파일</strong>이 제출 대상입니다. <code>점검결과.md</code>는 실행 중 갱신하는 파일입니다. 결과를 확인한 뒤 스케줄을 일시 중지합니다.</p>
+  <h3>본인 저장소에서 제출 확인하기</h3>
+  <p>완성한 5개 파일을 본인 실습 저장소의 <code>main</code>에 커밋하고 본인 GitHub 원격 저장소로 푸시합니다. 결과가 다른 브랜치에 있다면 먼저 해당 결과를 <code>main</code>에 반영합니다.</p>
+  <p>GitHub 웹에서 <code>main</code>의 아래 폴더를 열어 5개 파일과 최종 내용이 보이는지 확인합니다.</p>
+  <pre><code>class/kookmin-2026-2/ai-platform-development/week06/submissions/mission/</code></pre>
 </section>
 </main>
 </div>
