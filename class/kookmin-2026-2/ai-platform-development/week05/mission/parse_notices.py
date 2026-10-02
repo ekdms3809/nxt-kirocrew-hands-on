@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -45,7 +45,8 @@ class Notice:
     work_id: str = UNKNOWN                # 업무 ID / 행사 ID
     correction_target: str | None = None  # 정정 대상 공지 ID
     deadline_raw: str = UNKNOWN           # 모집/신청 마감 원문 표현
-    deadline_dt: datetime | None = None   # 파싱된 마감 datetime (가능할 때만)
+    deadline_dt: datetime | None = None   # 파싱된 마감 datetime (시각까지 명시된 경우만)
+    deadline_date: date | None = None     # 날짜만 명시되고 시각은 원문에 없는 경우
     is_recruitment: bool = False          # 모집/신청이 포함된 공지인가
     link: str = UNKNOWN                   # 링크(원문에 URL 없음)
     body: str = ""                        # 본문 전체
@@ -77,16 +78,26 @@ def split_notices(text: str) -> list[tuple[str, str, str]]:
 
 
 def _parse_dt(s: str) -> datetime | None:
-    """문자열에서 'YYYY-MM-DD HH:MM' 또는 'YYYY-MM-DD'를 KST datetime으로."""
+    """문자열에서 'YYYY-MM-DD HH:MM'만 KST datetime으로 변환한다.
+
+    시각이 명시되지 않은 'YYYY-MM-DD까지'는 정확한 마감 시각을 원문에서 알 수
+    없으므로 추측(예: 23:59)하지 않고 None을 돌려준다(처리 규칙 4: 원문에 없는
+    마감 시각은 추측하지 않는다). 날짜만 아는 경우의 상태 판정은 호출부에서
+    따로 처리한다.
+    """
     m = _DT_FULL.search(s)
     if m:
         y, mo, d, h, mi = (int(x) for x in m.groups())
         return datetime(y, mo, d, h, mi, tzinfo=KST)
+    return None
+
+
+def _parse_date_only(s: str) -> date | None:
+    """시각 없는 'YYYY-MM-DD'를 date로. 시각은 포함하지 않는다."""
     m = _DATE_ONLY.search(s)
     if m:
         y, mo, d = (int(x) for x in m.groups())
-        # 시각이 명시되지 않은 '…일까지'는 그날 끝(마감일)으로 본다.
-        return datetime(y, mo, d, 23, 59, tzinfo=KST)
+        return date(y, mo, d)
     return None
 
 
@@ -120,6 +131,7 @@ def parse_block(nid: str, title: str, block: str) -> Notice:
 
     # 마감 표현 추출: "YYYY-MM-DD HH:MM까지" / "YYYY-MM-DD까지"
     deadline_dt = None
+    deadline_date = None
     deadline_raw = UNKNOWN
     # 우선 'HH:MM까지' 형태를 찾는다.
     m_full = re.search(r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})\s*까지", paragraph)
@@ -128,13 +140,15 @@ def parse_block(nid: str, title: str, block: str) -> Notice:
         deadline_raw = m_full.group(1) + "까지"
         deadline_dt = _parse_dt(m_full.group(1))
     elif m_date:
-        # 시각 없는 '…까지' → 날짜만 명시, 정확한 시각은 원문에 없음
+        # 시각 없는 '…까지' → 날짜만 명시, 정확한 마감 시각은 원문에 없음.
+        # 시각을 추측하지 않는다(처리 규칙 4).
         deadline_raw = m_date.group(1) + "까지 (시각 미명시)"
-        deadline_dt = _parse_dt(m_date.group(1))
+        deadline_date = _parse_date_only(m_date.group(1))
 
     if notice.is_recruitment:
         notice.deadline_raw = deadline_raw
         notice.deadline_dt = deadline_dt
+        notice.deadline_date = deadline_date
     else:
         # 모집/신청이 아닌 안내 공지는 마감 개념이 없음
         notice.deadline_raw = "해당 없음(모집/신청 아님)"
@@ -156,11 +170,24 @@ def classify_status(notice: Notice, ref: datetime = REFERENCE_TIME) -> str:
     """기준 시각 대비 모집 상태를 판정한다."""
     if not notice.is_recruitment:
         return "모집/신청 아님 (상태 판정 대상 아님)"
-    if notice.deadline_dt is None:
-        return f"{UNKNOWN} (마감시각 원문 미확인)"
-    if notice.deadline_dt < ref:
-        return f"마감 (마감 {notice.deadline_dt:%Y-%m-%d %H:%M} < 기준 {ref:%Y-%m-%d %H:%M})"
-    return f"접수중 (마감 {notice.deadline_dt:%Y-%m-%d %H:%M} ≥ 기준 {ref:%Y-%m-%d %H:%M})"
+    # 1) 시각까지 명시된 마감: 정확히 비교한다.
+    if notice.deadline_dt is not None:
+        if notice.deadline_dt < ref:
+            return f"마감 (마감 {notice.deadline_dt:%Y-%m-%d %H:%M} < 기준 {ref:%Y-%m-%d %H:%M})"
+        return f"접수중 (마감 {notice.deadline_dt:%Y-%m-%d %H:%M} ≥ 기준 {ref:%Y-%m-%d %H:%M})"
+    # 2) 날짜만 명시되고 시각은 원문에 없는 마감.
+    if notice.deadline_date is not None:
+        ref_date = ref.date()
+        if notice.deadline_date > ref_date:
+            return f"접수중 (마감일 {notice.deadline_date} > 기준일 {ref_date}, 마감 시각 무관)"
+        if notice.deadline_date < ref_date:
+            return f"마감 (마감일 {notice.deadline_date} < 기준일 {ref_date}, 마감 시각 무관)"
+        # 같은 날: 정확한 마감 시각이 원문에 없어 접수중/마감을 단정할 수 없음.
+        return (
+            f"{UNKNOWN} (마감일 {notice.deadline_date} = 기준일 {ref_date}, "
+            f"마감 시각 미명시로 상태 단정 불가)"
+        )
+    return f"{UNKNOWN} (마감시각 원문 미확인)"
 
 
 def build_notices(text: str) -> list[Notice]:
