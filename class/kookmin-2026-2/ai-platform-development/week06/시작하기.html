@@ -397,7 +397,15 @@ submissions/hitl/선택기록.md에 저장해줘.</textarea>
       └─ DAG_HITL.png</code></pre>
     <p><code>점검결과.md</code>와 DAG 작업용 파일은 같은 폴더에 남아 있어도 됩니다. 위 다섯 파일이 제출 대상입니다.</p>
     <h4>본인 저장소에서 제출 확인하기</h4>
-    <ol><li>다섯 파일을 본인 실습 저장소의 <strong>main</strong>에 커밋하고 <strong>본인 GitHub 원격 저장소(origin)</strong>로 푸시합니다. 다른 브랜치에서 작업했다면 먼저 main에 반영합니다.</li><li>GitHub 웹에서 main의 아래 폴더를 열고, 다섯 파일을 각각 눌러 내용과 이미지가 보이는지 확인합니다.</li></ol>
+    <ol><li>다섯 파일을 본인 실습 저장소의 <strong>main</strong>에 커밋하고 <strong>본인 GitHub 원격 저장소(origin)</strong>로 푸시합니다. 다른 브랜치에서 작업했다면 먼저 main에 반영합니다. 터미널에서 <code>week06</code> 폴더로 이동한 뒤 아래 명령을 실행합니다.
+      <label class="prompt-label" for="submit-commands">제출 명령</label>
+      <textarea id="submit-commands" readonly>git branch --show-current
+git add submissions/
+git diff --cached --stat
+git commit -m "docs: 6주차 실습 제출"
+git push origin main</textarea>
+      <div class="copy-actions"><button type="button" data-copy="submit-commands">제출 명령 복사</button><span class="copy-feedback" role="status" aria-live="polite"></span></div>
+      <p>첫 줄의 출력이 <code>main</code>인지 확인합니다. <code>git diff --cached --stat</code>은 커밋에 들어갈 파일 목록을 보여 줍니다. 다섯 파일이 목록에 있는지 확인하세요. <code>origin</code>은 내 GitHub 저장소입니다.</p></li><li>GitHub 웹에서 main의 아래 폴더를 열고, 다섯 파일을 각각 눌러 내용과 이미지가 보이는지 확인합니다.</li></ol>
     <pre><code>class/kookmin-2026-2/ai-platform-development/week06/submissions/mission/</code></pre>
   </article>
 </section>
